@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.2</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
+    <ProjectGuid>{e51470c5-44fc-4984-93b0-063a024e4841}</ProjectGuid>
+    <avrdevice>ATtiny85</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>secu3_smcu_plus_app</AssemblyName>
+    <Name>secu3_smcu_plus_app</Name>
+    <RootNamespace>secu3_smcu_plus_app</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>false</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <preserveEEPROM>true</preserveEEPROM>
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <eraseonlaunchrule>1</eraseonlaunchrule>
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.22.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
+    <com_atmel_avrdbg_tool_jtagicemkii>
+      <ToolOptions>
+        <InterfaceProperties>
+          <IspClock>125000</IspClock>
+          <DebugWireClockDiv>0</DebugWireClockDiv>
+        </InterfaceProperties>
+        <InterfaceName>debugWIRE</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.jtagicemkii</ToolType>
+      <ToolNumber>13000BEC49F3</ToolNumber>
+      <ToolName>JTAGICE mkII</ToolName>
+    </com_atmel_avrdbg_tool_jtagicemkii>
+    <avrtoolinterface>
+    </avrtoolinterface>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolOptions>
+        <InterfaceProperties>
+        </InterfaceProperties>
+        <InterfaceName>
+        </InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber>
+      </ToolNumber>
+      <ToolName>Simulator</ToolName>
+    </com_atmel_avrdbg_tool_simulator>
+    <StimuliFile>D:\Work\Secu-3\secu3_smcu_plus\secu3_smcu_plus_app\hall.stim</StimuliFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+      </AvrGcc>
+    </ToolchainSettings>
+    <PostBuildEvent>"$(ToolchainDir)\avr-objcopy.exe" -v -I elf32-avr  -O ihex --gap-fill 0xFF --pad-to 0x2000 $(OutputFileName)$(OutputFileExtension) $(OutputFileName).a90
+"$(SolutionDir)do_crc.bat"
+</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
+    </ToolchainSettings>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="adc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="adc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="bc_status.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="bc_status.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="bitmask.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ce_errors.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ce_errors.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="choke.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="choke.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ckps.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="compilopt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="crc16.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="crc16.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ecudata.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ecudata.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="funconv.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="funconv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hall.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="magnitude.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="measure.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="measure.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="port\interrupt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="port\intrinsic.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="port\pgmspace.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="port\port.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="secu3.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="smcontrol.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="smcontrol.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="starter.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="starter.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="tables.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="tables.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="vstimer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="vstimer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wdt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="wdt.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="port" />
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
