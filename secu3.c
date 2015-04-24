@@ -107,7 +107,7 @@ MAIN()
  check_firmware_integrity();
 
  //Start watchdog timer! (запускаем сторожевой таймер)
-// wdt_start_timer();
+ wdt_start_timer();
 
  //perform initialization of all system modules
  init_modules();

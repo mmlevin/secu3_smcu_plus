@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Atmel Studio Solution File, Format Version 11.00
-Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "secu3_smcu_plus_app", "secu3_smcu_plus_app\secu3_smcu_plus_app.cproj", "{E51470C5-44FC-4984-93B0-063A024E4841}"
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "secu3_smcu_plus_app", "secu3_smcu_plus_app.cproj", "{E51470C5-44FC-4984-93B0-063A024E4841}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
